@@ -19,7 +19,7 @@ func Operation(arguments map[string]string, operation *base.Operation) (tb datab
 	// Iterate over each write operation.
 	for _, w := range rWrites {
 		// Parse the write operation string into a template.
-		tmpl, err := template.New("template").Parse(w)
+		tmpl, err := template.New("template").Option("missingkey=zero").Parse(w)
 		if err != nil {
 			return tb, ab, err
 		}
@@ -55,7 +55,7 @@ func Operation(arguments map[string]string, operation *base.Operation) (tb datab
 	// Iterate over each delete operation.
 	for _, w := range rDeletes {
 		// Parse the write operation string into a template.
-		tmpl, err := template.New("template").Parse(w)
+		tmpl, err := template.New("template").Option("missingkey=zero").Parse(w)
 		if err != nil {
 			return tb, ab, err
 		}
@@ -91,7 +91,7 @@ func Operation(arguments map[string]string, operation *base.Operation) (tb datab
 	// Iterate over each write operation.
 	for _, w := range aWrites {
 		// Parse the write operation string into a template.
-		tmpl, err := template.New("template").Parse(w)
+		tmpl, err := template.New("template").Option("missingkey=zero").Parse(w)
 		if err != nil {
 			return tb, ab, err
 		}
@@ -127,7 +127,7 @@ func Operation(arguments map[string]string, operation *base.Operation) (tb datab
 	// Iterate over each delete operation.
 	for _, w := range aDeletes {
 		// Parse the write operation string into a template.
-		tmpl, err := template.New("template").Parse(w)
+		tmpl, err := template.New("template").Option("missingkey=zero").Parse(w)
 		if err != nil {
 			return tb, ab, err
 		}
